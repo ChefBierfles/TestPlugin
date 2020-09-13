@@ -14,3 +14,6 @@ TODO:
 - Logging toepassen zodat er terug gezien kan worden of de villager gekillt, gezien en door wie, gehit (en door wie) en of gespawnt is.
 - Leuke particle effects bij spawnen, despawnen en om de zoveel tick een firework effect zodat de locatie makkeijker gekenmerkt is.
 - Optimalisatie van de code om zo veel mogelijk ticks te besparen
+
+Dependencies:
+- BKCommonLib - https://www.spigotmc.org/resources/bkcommonlib.39590/
