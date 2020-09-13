@@ -10,6 +10,7 @@ Features:
 
 TODO: 
 - Nadat de NPC gekillt is de speler ook killen + inventory clearen
+- Nadat de server crasht de NPC 'neutraal' maken zodat hier niet mee ge-exploit kan worden. (Breeden, leads etc). #InteractEvent checkje
 - Config file maken met instellingen voor de PvpLog-module
 - Logging toepassen zodat er terug gezien kan worden of de villager gekillt, gezien en door wie, gehit (en door wie) en of gespawnt is.
 - Leuke particle effects bij spawnen, despawnen en om de zoveel tick een firework effect zodat de locatie makkeijker gekenmerkt is.
