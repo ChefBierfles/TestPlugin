@@ -1,0 +1,7 @@
+name: TestPlugin
+version: ${project.version}
+main: nl.chefbierfles.testplugin.TestPlugin
+api-version: 1.16
+authors: [Chefbierfles]
+description: Test plugin met enkele modules
+depend: [BKCommonLib]
