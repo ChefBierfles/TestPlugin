@@ -19,4 +19,4 @@ TODO:
 Dependencies:
 - BKCommonLib - https://www.spigotmc.org/resources/bkcommonlib.39590/
 
-![](/images/logo.png)
+![](2020-09-13_16.50.31.png)
