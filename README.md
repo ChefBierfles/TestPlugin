@@ -19,5 +19,4 @@ TODO:
 Dependencies:
 - BKCommonLib - https://www.spigotmc.org/resources/bkcommonlib.39590/
 
-![GitHub Logo](/images/logo.png)
-Format: ![Alt Text](url)
+!(/images/logo.png)
