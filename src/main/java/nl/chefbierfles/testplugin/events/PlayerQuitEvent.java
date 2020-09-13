@@ -15,7 +15,7 @@ public class PlayerQuitEvent implements Listener {
 
     @EventHandler
     public void onPlayerQuit(org.bukkit.event.player.PlayerQuitEvent event) {
-        PvplogModule.PlayerQuitHandler(event.getPlayer());
+        //PvplogModule.PlayerQuitHandler(event.getPlayer());
     }
 
     //: DEBUG

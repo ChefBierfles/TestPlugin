@@ -47,16 +47,17 @@ public class PvplogModule extends BaseModule {
     // Handles when plugins disables (Server shutdown etc...)
     public static void PluginDisableHandler() {
 
-        //Remove entities an data
-        pvplogEntities.forEach(x -> {
-            RemoveNPC(x);
-        });
+        //Remove entities and data
+        Iterator<PvplogEntity> iterator = pvplogEntities.iterator();
+        while(iterator.hasNext()) {
+            RemoveNPC(iterator.next());
+        }
+        pvplogEntities = new ArrayList<>();
     }
     private static void RemoveNPC(PvplogEntity pvplogEntity) {
         CommonEntity commonEntity = pvplogEntity.getPvpLogEntity();
         commonEntity.setController(null);
         commonEntity.remove();
-        pvplogEntities.remove(pvplogEntity);
     }
     private static void InitNPC(Player player) {
 
@@ -73,10 +74,12 @@ public class PvplogModule extends BaseModule {
              public void onTick() {
                 super.onTick();
 
-                 PvplogEntity pvpLoggedEntity = pvplogEntities.stream().filter(x -> x.getPvpLogEntity().getUniqueId() == entity.getUniqueId()).findFirst().get();
+                 PvplogEntity pvpLoggedEntity = pvplogEntities.stream().filter(x -> x.getPvpLogEntity().getUniqueId() == entity.getUniqueId()).findFirst().orElse(null);
                  // If npc is expired
-                 if (LocalTime.now().compareTo(pvpLoggedEntity.getTimeUntillExpire()) > 0) {
-                     RemoveNPC(pvpLoggedEntity);
+                 if (pvpLoggedEntity != null) {
+                     if (LocalTime.now().compareTo(pvpLoggedEntity.getTimeUntillExpire()) > 0) {
+                         RemoveNPC(pvpLoggedEntity);
+                     }
                  }
              }
              @Override
@@ -99,12 +102,12 @@ public class PvplogModule extends BaseModule {
              public void onDie() {
                  super.onDie();
                  //Pvp logged entity reference
-                 PvplogEntity pvpLoggedEntity = pvplogEntities.stream().filter(x -> x.getPvpLogEntity().getUniqueId() == entity.getUniqueId()).findFirst().get();
+                 PvplogEntity pvpLoggedEntity = pvplogEntities.stream().filter(x -> x.getPvpLogEntity().getUniqueId() == entity.getUniqueId()).findFirst().orElse(null);
 
                  //Drop pvploggers inventory
-                 if (pvpLoggedEntity.getSavedContents() != null && pvpLoggedEntity.getSavedContents().length > 0) {
+                 if (pvpLoggedEntity != null && pvpLoggedEntity.getSavedContents() != null && pvpLoggedEntity.getSavedContents().length > 0) {
                      for (ItemStack item : pvpLoggedEntity.getSavedContents()) {
-                         if (item != null && item != new ItemStack(Material.AIR)) {
+                         if (item != null && item.getType() != Material.AIR) {
                              Bukkit.getWorld(pvpLoggedEntity.getPvpLogEntity().getWorld().getUID()).dropItemNaturally(entity.getLocation(), item);
                          }
                      }
