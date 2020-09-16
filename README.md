@@ -19,6 +19,8 @@ TODO:
 Dependencies:
 - BKCommonLib - https://www.spigotmc.org/resources/bkcommonlib.39590/
 
+Discord: ChefBierfles // Demian#3757
+
 ![](2020-09-13_16.50.31.png)
 
 https://youtu.be/q8L3L1Nr6nM
